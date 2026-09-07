@@ -1,6 +1,6 @@
 # Tasks — Phase 00 External Bootstrap
 
-**Terakhir diperbarui:** 3 September 2026
+**Terakhir diperbarui:** 7 September 2026
 
 ## Status workflow
 
@@ -25,8 +25,8 @@
 |---|---|---|---|---|
 | P0-01 | Scope contract dan decision log | `project-charter.md` dan `DECISIONS.md` | — | Done |
 | P0-02 | Audit environment dan aturan eksperimen | `environment-audit.md` dan `experiment-convention.md` | P0-01 | Done |
-| P0-03 | Repository, virtual environment, dan Git lokal | struktur folder, `.venv`, `.gitignore`, initial commit | P0-02 | In Progress |
-| P1-01 | Intake dua dataset Roboflow | raw dataset eksternal di storage | P0-03 dan login pengguna | Backlog |
+| P0-03 | Repository, virtual environment, dan Git lokal | struktur folder, `.venv`, `.gitignore`, initial commit | P0-02 | Done |
+| P1-01 | Intake dua dataset Roboflow | raw dataset eksternal di storage | P0-03 dan login pengguna | Ready |
 | P1-02 | Dokumentasi provenance dataset | source manifest, lisensi, versi, checksum | P1-01 | Backlog |
 | P2-01 | Validasi file dan anotasi | statistik file, class map, broken-label report | P1-02 | Backlog |
 | P2-02 | Audit exact dan near duplicate | duplicate-group report | P2-01 | Backlog |
@@ -57,9 +57,17 @@
 - [x] virtual environment dibuat dan interpreter VS Code terverifikasi;
 - [x] Git repository lokal diinisialisasi pada branch `main`;
 - [x] file aman diperiksa sebelum commit;
-- [ ] initial commit dibuat;
+- [x] initial commit `4f44419` dibuat;
 - [x] remote tetap kosong.
 
 ## Checkpoint aktif
 
-`P0-03 — membuat virtual environment, memvalidasi ignore rules, lalu initial Git commit lokal`.
+`P1-01 — mengunduh dua dataset Roboflow ke external raw storage tanpa preprocessing/crop tambahan`.
+
+## Evidence foundation
+
+- Branch: `main`.
+- Initial commit: `4f44419` (`chore: initialize OVD vision project`).
+- Initial commit content: 10 file dokumentasi/configuration aman.
+- Git worktree setelah commit: clean.
+- Remote repository: belum dikonfigurasi.
