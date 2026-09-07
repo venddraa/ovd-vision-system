@@ -26,7 +26,7 @@
 | P0-01 | Scope contract dan decision log | `project-charter.md` dan `DECISIONS.md` | — | Done |
 | P0-02 | Audit environment dan aturan eksperimen | `environment-audit.md` dan `experiment-convention.md` | P0-01 | Done |
 | P0-03 | Repository, virtual environment, dan Git lokal | struktur folder, `.venv`, `.gitignore`, initial commit | P0-02 | Done |
-| P1-01 | Intake dua dataset Roboflow | raw dataset eksternal di storage | P0-03 dan login pengguna | Ready |
+| P1-01 | Intake dua dataset Roboflow | raw dataset eksternal di storage | P0-03 dan login pengguna | In Progress |
 | P1-02 | Dokumentasi provenance dataset | source manifest, lisensi, versi, checksum | P1-01 | Backlog |
 | P2-01 | Validasi file dan anotasi | statistik file, class map, broken-label report | P1-02 | Backlog |
 | P2-02 | Audit exact dan near duplicate | duplicate-group report | P2-01 | Backlog |
@@ -64,6 +64,14 @@
 ## Checkpoint aktif
 
 `P1-01 — mengunduh dua dataset Roboflow ke external raw storage tanpa preprocessing/crop tambahan`.
+
+## Progress P1-01
+
+- [x] dataset komponen `boxtruck`/`headtruck`/`muatan` difork ke workspace external-only;
+- [x] snapshot v1 dibuat dari 1.095 source image tanpa preprocessing, resize, crop, atau augmentation;
+- [x] COCO JSON diekspor dan dipindahkan dari repository ke external raw storage;
+- [x] validasi intake awal dan checksum 1.100 file selesai;
+- [ ] dataset ODOL/NOT ODOL difork, diekspor, dan divalidasi dengan prosedur yang sama.
 
 ## Evidence foundation
 
