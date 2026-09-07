@@ -1,0 +1,132 @@
+schema_version: 1
+dataset_id: roboflow-odol-vehicle-detection-binary-v1-raw
+stage: raw
+status: received_pending_quality_audit
+
+source:
+  platform: Roboflow Universe
+  owner: Daris Irfan Putrawanto
+  project: ODOL Vehicle Detection Dataset
+  url: https://universe.roboflow.com/daris-irfan-putrawanto/odol-vehicle-detection-dataset
+  license: CC BY 4.0
+  attribution_required: true
+  fork_url: https://universe.roboflow.com/signlangac/odol-vehicle-detection-dataset-gw9tm
+  fork_version: 1
+  fork_version_name: "2026-09-07 4:58pm"
+  acquired_at_utc: "2026-09-07T10:00:00Z"
+  export_format: COCO JSON
+  source_archive_retained: true
+  source_archive_filename: ODOL Vehicle Detection Dataset.v1i.coco.zip
+
+usage:
+  sensitivity: public
+  role: B2 visual-suspicion baseline
+  allowed_use:
+    - external bootstrap
+    - dataset audit
+    - baseline model training
+  prohibited_interpretation:
+    - legal overdimension ground truth
+    - evidence of performance on JMTO CCTV
+    - independent validation against the component dataset
+    - automatic enforcement evidence
+
+storage:
+  git_tracked: false
+  archive_path_from_repository: ../storage/external/raw/roboflow/odol-vehicle-detection-binary/v1/archive/ODOL Vehicle Detection Dataset.v1i.coco.zip
+  extracted_path_from_repository: ../storage/external/raw/roboflow/odol-vehicle-detection-binary/v1/extracted/coco
+  integrity_path_from_repository: ../storage/external/raw/roboflow/odol-vehicle-detection-binary/v1/integrity/coco-files.sha256
+
+transformations:
+  preprocessing: []
+  resize: null
+  crop: null
+  augmentation: []
+
+source_split:
+  policy: Preserved only as source provenance; not approved as the final experiment split.
+  train:
+    images: 853
+    annotations: 1002
+    null_images: 0
+  valid:
+    images: 160
+    annotations: 199
+    null_images: 0
+  test:
+    images: 53
+    annotations: 60
+    null_images: 0
+
+inventory:
+  total_files: 1071
+  images: 1066
+  annotation_files: 3
+  readme_files: 2
+  annotations: 1261
+  null_images: 0
+  unannotated_images: 0
+  image_width_range_px: [132, 1602]
+  image_height_range_px: [183, 1014]
+
+classes:
+  - source_category_id: 1
+    canonical_name: NOT ODOL
+    images_containing_class: 615
+    annotation_instances: 672
+  - source_category_id: 2
+    canonical_name: ODOL
+    images_containing_class: 537
+    annotation_instances: 589
+
+export_quirks:
+  - The COCO categories array contains unused category id 0 named Truck-ODOL-Reannotated; no annotation references it.
+  - Training-format conversion must map the two used source category IDs deterministically to contiguous IDs.
+  - Twenty-nine boxes exceed an image boundary by at most 0.01 pixel due to coordinate precision; raw annotations remain unchanged.
+
+relationship_to_component_dataset:
+  component_dataset_id: roboflow-truck-over-dimension-components-v1-raw
+  component_images: 1095
+  shared_source_filename_stems: 1066
+  component_only_source_filename_stems: 29
+  binary_only_source_filename_stems: 0
+  shared_images_with_equal_dimensions: 1066
+  shared_exact_file_hashes: 1
+  sampled_pair_count: 50
+  sampled_normalized_rmse_min: 0.000341227
+  sampled_normalized_rmse_median: 0.0006510345
+  sampled_normalized_rmse_max: 0.00242684
+  shared_images_in_same_source_split: 703
+  shared_images_in_different_source_split: 363
+  interpretation: Strong evidence that this dataset re-annotates 1,066 images from the component dataset after light image re-encoding; it adds label semantics, not an independent image collection.
+
+integrity:
+  archive_sha256: eb732dc432307e1fd060f17453dc4298e91055d70ab420a95d47b2a244924147
+  archive_test: passed
+  archive_suspicious_paths: 0
+  archive_symlinks: 0
+  archive_encrypted_entries: 0
+  archive_duplicate_entry_names: 0
+  image_decode_errors: 0
+  image_dimension_mismatches: 0
+  missing_referenced_images: 0
+  extra_unreferenced_images: 0
+  duplicate_image_ids_within_split: 0
+  duplicate_annotation_ids_within_split: 0
+  invalid_image_references: 0
+  invalid_category_references: 0
+  non_positive_or_malformed_boxes: 0
+  boundary_precision_boxes: 29
+  maximum_boundary_overflow_px: 0.01
+  exact_duplicate_hash_groups: 0
+  exact_duplicate_hash_groups_cross_split: 0
+  internal_near_duplicate_audit: pending
+  checksum_algorithm: SHA-256
+  checksum_entries: 1071
+  checksum_manifest_sha256: 746fe0db2d366b83a678c3efa13924703e348324cd46f76d877bcb86b449c7c8
+
+next_actions:
+  - Build a shared source-image identity map across both label ontologies.
+  - Audit near-duplicate video frames and group them before splitting.
+  - Visually review ODOL and NOT ODOL label semantics and bounding-box consistency.
+  - Create a derived training dataset outside raw storage; never modify this snapshot in place.

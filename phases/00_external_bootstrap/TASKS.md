@@ -26,9 +26,9 @@
 | P0-01 | Scope contract dan decision log | `project-charter.md` dan `DECISIONS.md` | — | Done |
 | P0-02 | Audit environment dan aturan eksperimen | `environment-audit.md` dan `experiment-convention.md` | P0-01 | Done |
 | P0-03 | Repository, virtual environment, dan Git lokal | struktur folder, `.venv`, `.gitignore`, initial commit | P0-02 | Done |
-| P1-01 | Intake dua dataset Roboflow | raw dataset eksternal di storage | P0-03 dan login pengguna | In Progress |
-| P1-02 | Dokumentasi provenance dataset | source manifest, lisensi, versi, checksum | P1-01 | Backlog |
-| P2-01 | Validasi file dan anotasi | statistik file, class map, broken-label report | P1-02 | Backlog |
+| P1-01 | Intake dua dataset Roboflow | raw dataset eksternal di storage | P0-03 dan login pengguna | Done |
+| P1-02 | Dokumentasi provenance dataset | source manifest, lisensi, versi, checksum | P1-01 | Done |
+| P2-01 | Validasi file dan anotasi | statistik file, class map, broken-label report | P1-02 | Ready |
 | P2-02 | Audit exact dan near duplicate | duplicate-group report | P2-01 | Backlog |
 | P2-03 | Review visual kualitas label | error gallery dan exclusion list | P2-01 | Backlog |
 | P2-04 | Keputusan dataset bersih | clean manifest dan keputusan pakai/perbaiki/buang | P2-02 dan P2-03 | Backlog |
@@ -63,7 +63,7 @@
 
 ## Checkpoint aktif
 
-`P1-01 — mengunduh dua dataset Roboflow ke external raw storage tanpa preprocessing/crop tambahan`.
+`P2-01 — membuat validasi dataset yang reproducible dan laporan kualitas anotasi`.
 
 ## Progress P1-01
 
@@ -71,7 +71,9 @@
 - [x] snapshot v1 dibuat dari 1.095 source image tanpa preprocessing, resize, crop, atau augmentation;
 - [x] COCO JSON diekspor dan dipindahkan dari repository ke external raw storage;
 - [x] validasi intake awal dan checksum 1.100 file selesai;
-- [ ] dataset ODOL/NOT ODOL difork, diekspor, dan divalidasi dengan prosedur yang sama.
+- [x] dataset ODOL/NOT ODOL difork, diekspor, dan divalidasi dengan prosedur yang sama;
+- [x] overlap sumber antardataset diperiksa dan risiko split leakage dicatat;
+- [x] provenance, lisensi, archive checksum, dan extracted-file checksum disimpan dalam manifest Git.
 
 ## Evidence foundation
 
