@@ -1,0 +1,52 @@
+# Secrets
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Data accidentally placed inside repository
+data/
+datasets/
+videos/
+captures/
+*.zip
+*.tar
+*.tar.gz
+
+# Models and experiment outputs
+artifacts/
+runs/
+wandb/
+mlruns/
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# Video files
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.ts
+
+# Local-only configuration
+.vscode/
+*.local.yaml
+*.local.yml
+
+# Logs and temporary files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
