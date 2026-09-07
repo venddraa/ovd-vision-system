@@ -58,7 +58,8 @@
 - [x] Git repository lokal diinisialisasi pada branch `main`;
 - [x] file aman diperiksa sebelum commit;
 - [x] initial commit `4f44419` dibuat;
-- [x] remote tetap kosong.
+- [x] remote dibiarkan kosong sampai isi initial commit selesai diperiksa;
+- [x] `origin` kemudian diarahkan ke `venddraa/ovd-vision-system` dan `main` berhasil tracking `origin/main`.
 
 ## Checkpoint aktif
 
@@ -70,4 +71,6 @@
 - Initial commit: `4f44419` (`chore: initialize OVD vision project`).
 - Initial commit content: 10 file dokumentasi/configuration aman.
 - Git worktree setelah commit: clean.
-- Remote repository: belum dikonfigurasi.
+- Remote repository: `https://github.com/venddraa/ovd-vision-system.git`.
+- Upstream branch: `main` → `origin/main`.
+- Batas remote: hanya codebase dan dokumentasi non-sensitif; izin remote resmi untuk artifact internal JMTO masih terbuka.

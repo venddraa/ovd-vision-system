@@ -21,7 +21,7 @@ Dokumen ini mencatat keputusan teknis dan produk beserta alasannya. Keputusan ti
 | D-006 | 2026-09-03 | Unit keputusan adalah satu vehicle event | Keputusan per-frame dapat menghitung kendaraan yang sama berkali-kali dan tidak stabil | Active |
 | D-007 | 2026-09-03 | B1 component detector menjadi kandidat jalur utama | Boundary bak/bodi/muatan lebih berguna untuk geometry dan lebih explainable | Provisional |
 | D-008 | 2026-09-03 | Model ODOL/NOT ODOL hanya menjadi visual-suspicion baseline | Label publik belum membuktikan pelanggaran legal atau ukuran fisik | Active |
-| D-009 | 2026-09-03 | Git lokal dibuat sebelum remote GitHub/GitLab | Remote harus menunggu kanal dan kebijakan perusahaan | Active |
+| D-009 | 2026-09-03 | Git lokal dibuat sebelum remote GitHub/GitLab | Remote harus menunggu pemeriksaan awal agar file sensitif tidak ikut terpublikasi | Superseded |
 | D-010 | 2026-09-03 | Raw data, video, model weight, dan hasil sensitif disimpan di luar repository | Mengurangi risiko kebocoran dan accidental commit | Active |
 | D-011 | 2026-09-03 | Folder internal JMTO belum dibuat | Lokasi storage, izin akses, dan kebijakan retensi belum disetujui | Active |
 | D-012 | 2026-09-03 | LiDAR/laser/manual measurement diposisikan sebagai comparator atau ground truth | Produk utama harus menggunakan AI vision; WIM tetap menangani berat | Active |
@@ -29,6 +29,7 @@ Dokumen ini mencatat keputusan teknis dan produk beserta alasannya. Keputusan ti
 | D-014 | 2026-09-03 | Kaggle T4 menjadi executor utama untuk full training data eksternal; Colab menjadi fallback | Laptop tidak memiliki NVIDIA GPU, sedangkan resource Colab tidak dijamin tetap | Active |
 | D-015 | 2026-09-03 | P100 tidak digunakan untuk workflow baru | Kaggle menghentikan P100 pada 15 September 2026 dan default PyTorch image memiliki risiko kompatibilitas | Active |
 | D-016 | 2026-09-03 | Kaggle CLI/API baru diotomatisasi setelah notebook manual reproducible | API berfungsi sebagai remote job submission, bukan raw GPU yang dipinjam proses lokal | Active |
+| D-017 | 2026-09-07 | Codebase external-bootstrap dicadangkan ke `venddraa/ovd-vision-system`; remote resmi untuk pekerjaan internal tetap menunggu persetujuan perusahaan | Repository saat ini hanya memuat kode dan dokumentasi non-sensitif; keputusan ini tidak memberi izin mengunggah CCTV, credential, model, atau dokumen internal JMTO | Provisional |
 
 ## Open decisions
 
@@ -41,5 +42,5 @@ Keputusan berikut belum dapat diselesaikan sebelum diskusi mentor atau audit CCT
 | OD-003 | Screening atau pengukuran dalam meter | kebutuhan operator dan legal |
 | OD-004 | Kamera fixed atau PTZ | metadata dan akses kamera |
 | OD-005 | Metode physical ground truth | akses lapangan dan alat ukur |
-| OD-006 | Remote repository yang diizinkan | keputusan perusahaan/IT |
+| OD-006 | Remote resmi untuk kolaborasi dan artifact internal JMTO | keputusan perusahaan/IT |
 | OD-007 | Compute untuk training/fine-tuning data internal dan deployment | kebijakan data serta resource perusahaan |
