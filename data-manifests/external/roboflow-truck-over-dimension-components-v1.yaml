@@ -1,7 +1,7 @@
 schema_version: 1
 dataset_id: roboflow-truck-over-dimension-components-v1-raw
 stage: raw
-status: received_pending_quality_audit
+status: structure_validated_pending_duplicate_and_visual_audit
 
 source:
   platform: Roboflow Universe
@@ -102,6 +102,15 @@ integrity:
   checksum_algorithm: SHA-256
   checksum_entries: 1100
   checksum_manifest_sha256: abd7dde96a27164317130f6e42f272d12ebb7e3ffa2ab7193727ece020ce8d88
+
+validation:
+  validator_version: 1.0.0
+  validated_on: "2026-09-08"
+  status: PASS_WITH_WARNINGS
+  material_errors: 0
+  warnings: 41
+  information_findings: 79
+  report_from_repository: phases/00_external_bootstrap/reports/p2-01/roboflow-truck-over-dimension-components-v1-raw.validation.json
 
 next_actions:
   - Audit near duplicates and source-scene leakage before making the experiment split.

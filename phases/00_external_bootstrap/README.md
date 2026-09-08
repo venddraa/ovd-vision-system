@@ -36,3 +36,20 @@ Hasil fase ini tidak boleh disebut:
 - `TASKS.md`: board pekerjaan dan checkpoint.
 - `DECISIONS.md`: keputusan serta open decisions.
 - `reports/`: laporan audit, baseline, dan handoff fase.
+
+## Validasi dataset P2-01
+
+Jalankan dari root repository:
+
+```bash
+python scripts/validate_coco_datasets.py
+```
+
+Registry dataset berada di `configs/bootstrap_external/datasets.json`. Validator membaca raw dataset dan checksum secara
+read-only, lalu menulis laporan deterministik ke `reports/p2-01/`.
+
+Exit code:
+
+- `0`: seluruh dataset lolos; warning tetap dapat muncul dan harus ditindaklanjuti;
+- `1`: sedikitnya satu material data error ditemukan;
+- `2`: registry atau argumen konfigurasi tidak valid.

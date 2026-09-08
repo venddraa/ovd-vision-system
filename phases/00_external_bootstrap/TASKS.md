@@ -28,9 +28,9 @@
 | P0-03 | Repository, virtual environment, dan Git lokal | struktur folder, `.venv`, `.gitignore`, initial commit | P0-02 | Done |
 | P1-01 | Intake dua dataset Roboflow | raw dataset eksternal di storage | P0-03 dan login pengguna | Done |
 | P1-02 | Dokumentasi provenance dataset | source manifest, lisensi, versi, checksum | P1-01 | Done |
-| P2-01 | Validasi file dan anotasi | statistik file, class map, broken-label report | P1-02 | Ready |
-| P2-02 | Audit exact dan near duplicate | duplicate-group report | P2-01 | Backlog |
-| P2-03 | Review visual kualitas label | error gallery dan exclusion list | P2-01 | Backlog |
+| P2-01 | Validasi file dan anotasi | statistik file, class map, broken-label report | P1-02 | Done |
+| P2-02 | Audit exact dan near duplicate | duplicate-group report | P2-01 | Ready |
+| P2-03 | Review visual kualitas label | error gallery dan exclusion list | P2-01 | Ready |
 | P2-04 | Keputusan dataset bersih | clean manifest dan keputusan pakai/perbaiki/buang | P2-02 dan P2-03 | Backlog |
 | P3-01 | Split bebas leakage | train/validation/test manifest | P2-04 | Backlog |
 | P3-02 | Kontrak eksperimen B0/B1/B2 | experiment matrix | P3-01 | Backlog |
@@ -63,7 +63,7 @@
 
 ## Checkpoint aktif
 
-`P2-01 — membuat validasi dataset yang reproducible dan laporan kualitas anotasi`.
+`P2-02 — mengelompokkan exact duplicate, near duplicate, dan source sequence sebelum split`.
 
 ## Progress P1-01
 
@@ -74,6 +74,16 @@
 - [x] dataset ODOL/NOT ODOL difork, diekspor, dan divalidasi dengan prosedur yang sama;
 - [x] overlap sumber antardataset diperiksa dan risiko split leakage dicatat;
 - [x] provenance, lisensi, archive checksum, dan extracted-file checksum disimpan dalam manifest Git.
+
+## Evidence P2-01
+
+- Validator: `scripts/validate_coco_datasets.py` (Python standard library, raw read-only).
+- Registry: `configs/bootstrap_external/datasets.json`.
+- Regression test: enam test untuk happy path, boundary tolerance, missing file, checksum mutation, JPEG, dan PNG.
+- Component dataset: `PASS_WITH_WARNINGS`, 0 error, 41 warning, 79 info.
+- Binary ODOL dataset: `PASS_WITH_WARNINGS`, 0 error, 30 warning, 0 info.
+- Seluruh 2.161 image header dan 2.171 raw file checksum berhasil diverifikasi tanpa mismatch.
+- Report machine-readable dan human-readable: `reports/p2-01/`.
 
 ## Evidence foundation
 

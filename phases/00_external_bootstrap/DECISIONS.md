@@ -32,6 +32,7 @@ Dokumen ini mencatat keputusan teknis dan produk beserta alasannya. Keputusan ti
 | D-017 | 2026-09-07 | Codebase external-bootstrap dicadangkan ke `venddraa/ovd-vision-system`; remote resmi untuk pekerjaan internal tetap menunggu persetujuan perusahaan | Repository saat ini hanya memuat kode dan dokumentasi non-sensitif; keputusan ini tidak memberi izin mengunggah CCTV, credential, model, atau dokumen internal JMTO | Provisional |
 | D-018 | 2026-09-07 | COCO JSON tanpa preprocessing atau augmentation menjadi canonical raw export untuk dataset object detection eksternal | Metadata gambar, bounding box, category map, dan null image lebih eksplisit untuk audit; format training seperti YOLO dibuat sebagai turunan di processed storage | Active |
 | D-019 | 2026-09-07 | Dataset ODOL/NOT ODOL diperlakukan sebagai alternate-label view, bukan koleksi visual independen | Seluruh 1.066 source filename stem-nya terdapat pada dataset komponen, dimensinya sama, dan sampel pixel comparison nyaris identik; 363 gambar memiliki assignment split berbeda sehingga split sumber tidak boleh dipakai untuk perbandingan B1/B2 | Active |
+| D-020 | 2026-09-08 | Validator raw memperlakukan bbox overflow sampai 0,05 piksel sebagai precision warning dan overflow yang lebih besar sebagai error | Export COCO memiliki overflow maksimum 0,01 piksel akibat representasi desimal; toleransi hanya mengklasifikasikan temuan dan tidak mengubah raw annotation | Active |
 
 ## Open decisions
 

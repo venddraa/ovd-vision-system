@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "datasets": [
+    {
+      "dataset_id": "roboflow-truck-over-dimension-components-v1-raw",
+      "root_from_repository": "../storage/external/raw/roboflow/truck-over-dimension-components/v1/extracted/coco",
+      "checksum_manifest_from_repository": "../storage/external/raw/roboflow/truck-over-dimension-components/v1/integrity/coco-files.sha256",
+      "splits": ["train", "valid", "test"],
+      "annotation_filename": "_annotations.coco.json",
+      "boundary_tolerance_px": 0.05,
+      "check_image_headers": true,
+      "expected": {
+        "images": 1095,
+        "annotations": 2902,
+        "zero_annotation_images": 79,
+        "used_class_names": ["boxtruck", "headtruck", "muatan"],
+        "splits": {
+          "train": {"images": 879, "annotations": 2329},
+          "valid": {"images": 165, "annotations": 439},
+          "test": {"images": 51, "annotations": 134}
+        }
+      }
+    },
+    {
+      "dataset_id": "roboflow-odol-vehicle-detection-binary-v1-raw",
+      "root_from_repository": "../storage/external/raw/roboflow/odol-vehicle-detection-binary/v1/extracted/coco",
+      "checksum_manifest_from_repository": "../storage/external/raw/roboflow/odol-vehicle-detection-binary/v1/integrity/coco-files.sha256",
+      "splits": ["train", "valid", "test"],
+      "annotation_filename": "_annotations.coco.json",
+      "boundary_tolerance_px": 0.05,
+      "check_image_headers": true,
+      "expected": {
+        "images": 1066,
+        "annotations": 1261,
+        "zero_annotation_images": 0,
+        "used_class_names": ["NOT ODOL", "ODOL"],
+        "splits": {
+          "train": {"images": 853, "annotations": 1002},
+          "valid": {"images": 160, "annotations": 199},
+          "test": {"images": 53, "annotations": 60}
+        }
+      }
+    }
+  ]
+}

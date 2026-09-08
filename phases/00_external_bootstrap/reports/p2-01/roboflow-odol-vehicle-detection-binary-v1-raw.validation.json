@@ -1,0 +1,161 @@
+{
+  "checksum_verification": {
+    "enabled": true,
+    "entries": 1071,
+    "manifest": "coco-files.sha256",
+    "manifest_sha256": "746fe0db2d366b83a678c3efa13924703e348324cd46f76d877bcb86b449c7c8",
+    "mismatches": 0,
+    "missing": 0,
+    "unlisted_files": 0,
+    "unsafe_paths": 0,
+    "verified": 1071
+  },
+  "class_map": [
+    {
+      "annotation_instances": 672,
+      "images_containing_class": 615,
+      "name": "NOT ODOL",
+      "source_category_id": 1,
+      "target_class_id": 0
+    },
+    {
+      "annotation_instances": 589,
+      "images_containing_class": 537,
+      "name": "ODOL",
+      "source_category_id": 2,
+      "target_class_id": 1
+    }
+  ],
+  "dataset_id": "roboflow-odol-vehicle-detection-binary-v1-raw",
+  "dataset_root_from_repository": "../storage/external/raw/roboflow/odol-vehicle-detection-binary/v1/extracted/coco",
+  "distributions": {
+    "bbox_area_ratio": {
+      "max": 0.9969879518072289,
+      "median": 0.14964663628472222,
+      "min": 0.000737251736111111,
+      "p25": 0.022685763888888887,
+      "p75": 0.9134659874608151
+    },
+    "bbox_height_px": {
+      "max": 855.33,
+      "median": 211.69,
+      "min": 31.34,
+      "p25": 149.33,
+      "p75": 283.0
+    },
+    "bbox_width_px": {
+      "max": 938.33,
+      "median": 216.67,
+      "min": 21.68,
+      "p25": 141.67,
+      "p75": 311.14
+    },
+    "image_height_px": {
+      "max": 1014.0,
+      "median": 720.0,
+      "min": 183.0,
+      "p25": 255.0,
+      "p75": 720.0
+    },
+    "image_width_px": {
+      "max": 1602.0,
+      "median": 1280.0,
+      "min": 132.0,
+      "p25": 255.0,
+      "p75": 1280.0
+    }
+  },
+  "image_header_check": {
+    "checked": 1066,
+    "enabled": true
+  },
+  "issue_counts": {
+    "error": 0,
+    "info": 0,
+    "warning": 30
+  },
+  "issues": [
+    {
+      "code": "bbox_boundary_precision",
+      "count": 29,
+      "examples": [
+        "train: annotation 58, overflow=0.010000px",
+        "train: annotation 82, overflow=0.010000px",
+        "train: annotation 118, overflow=0.010000px",
+        "train: annotation 146, overflow=0.010000px",
+        "train: annotation 200, overflow=0.010000px",
+        "train: annotation 242, overflow=0.010000px",
+        "train: annotation 270, overflow=0.010000px",
+        "train: annotation 284, overflow=0.010000px",
+        "train: annotation 287, overflow=0.010000px",
+        "train: annotation 302, overflow=0.010000px"
+      ],
+      "message": "Bounding box exceeds the image boundary only within numeric tolerance.",
+      "severity": "warning"
+    },
+    {
+      "code": "unused_category",
+      "count": 1,
+      "examples": [
+        "id=0, name=Truck-ODOL-Reannotated"
+      ],
+      "message": "Category exists in the schema but is unused by annotations.",
+      "severity": "warning"
+    }
+  ],
+  "schema_version": 1,
+  "source_categories": [
+    {
+      "id": 0,
+      "name": "Truck-ODOL-Reannotated",
+      "supercategory": "none"
+    },
+    {
+      "id": 1,
+      "name": "NOT ODOL",
+      "supercategory": "Truck-ODOL-Reannotated"
+    },
+    {
+      "id": 2,
+      "name": "ODOL",
+      "supercategory": "Truck-ODOL-Reannotated"
+    }
+  ],
+  "splits": {
+    "test": {
+      "annotations": 60,
+      "boundary_error_boxes": 0,
+      "boundary_precision_boxes": 0,
+      "image_files": 53,
+      "images": 53,
+      "zero_annotation_images": 0
+    },
+    "train": {
+      "annotations": 1002,
+      "boundary_error_boxes": 0,
+      "boundary_precision_boxes": 24,
+      "image_files": 853,
+      "images": 853,
+      "zero_annotation_images": 0
+    },
+    "valid": {
+      "annotations": 199,
+      "boundary_error_boxes": 0,
+      "boundary_precision_boxes": 5,
+      "image_files": 160,
+      "images": 160,
+      "zero_annotation_images": 0
+    }
+  },
+  "status": "PASS_WITH_WARNINGS",
+  "totals": {
+    "annotations": 1261,
+    "image_files": 1066,
+    "images": 1066,
+    "zero_annotation_images": 0
+  },
+  "validator": {
+    "name": "validate_coco_datasets.py",
+    "version": "1.0.0"
+  }
+}

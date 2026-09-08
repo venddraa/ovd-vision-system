@@ -1,0 +1,200 @@
+{
+  "checksum_verification": {
+    "enabled": true,
+    "entries": 1100,
+    "manifest": "coco-files.sha256",
+    "manifest_sha256": "abd7dde96a27164317130f6e42f272d12ebb7e3ffa2ab7193727ece020ce8d88",
+    "mismatches": 0,
+    "missing": 0,
+    "unlisted_files": 0,
+    "unsafe_paths": 0,
+    "verified": 1100
+  },
+  "class_map": [
+    {
+      "annotation_instances": 1104,
+      "images_containing_class": 994,
+      "name": "boxtruck",
+      "source_category_id": 1,
+      "target_class_id": 0
+    },
+    {
+      "annotation_instances": 1127,
+      "images_containing_class": 1003,
+      "name": "headtruck",
+      "source_category_id": 2,
+      "target_class_id": 1
+    },
+    {
+      "annotation_instances": 671,
+      "images_containing_class": 609,
+      "name": "muatan",
+      "source_category_id": 3,
+      "target_class_id": 2
+    }
+  ],
+  "dataset_id": "roboflow-truck-over-dimension-components-v1-raw",
+  "dataset_root_from_repository": "../storage/external/raw/roboflow/truck-over-dimension-components/v1/extracted/coco",
+  "distributions": {
+    "bbox_area_ratio": {
+      "max": 0.7730122001213828,
+      "median": 0.07079962374331944,
+      "min": 3.026150173611111e-06,
+      "p25": 0.010995659722222223,
+      "p75": 0.3936027096733822
+    },
+    "bbox_height_px": {
+      "max": 596.0,
+      "median": 116.755,
+      "min": 1.67,
+      "p25": 68.33,
+      "p75": 168.33
+    },
+    "bbox_width_px": {
+      "max": 756.0,
+      "median": 165.0,
+      "min": 1.67,
+      "p25": 108.3575,
+      "p75": 236.745
+    },
+    "image_height_px": {
+      "max": 1014.0,
+      "median": 720.0,
+      "min": 183.0,
+      "p25": 257.0,
+      "p75": 720.0
+    },
+    "image_width_px": {
+      "max": 1602.0,
+      "median": 1280.0,
+      "min": 132.0,
+      "p25": 256.5,
+      "p75": 1280.0
+    }
+  },
+  "image_header_check": {
+    "checked": 1095,
+    "enabled": true
+  },
+  "issue_counts": {
+    "error": 0,
+    "info": 79,
+    "warning": 41
+  },
+  "issues": [
+    {
+      "code": "bbox_boundary_precision",
+      "count": 39,
+      "examples": [
+        "train: annotation 225, overflow=0.010000px",
+        "train: annotation 251, overflow=0.010000px",
+        "train: annotation 280, overflow=0.010000px",
+        "train: annotation 324, overflow=0.010000px",
+        "train: annotation 402, overflow=0.010000px",
+        "train: annotation 473, overflow=0.010000px",
+        "train: annotation 494, overflow=0.010000px",
+        "train: annotation 500, overflow=0.010000px",
+        "train: annotation 513, overflow=0.010000px",
+        "train: annotation 594, overflow=0.010000px"
+      ],
+      "message": "Bounding box exceeds the image boundary only within numeric tolerance.",
+      "severity": "warning"
+    },
+    {
+      "code": "duplicate_category_name",
+      "count": 1,
+      "examples": [
+        "boxtruck"
+      ],
+      "message": "Category name is duplicated in the COCO schema.",
+      "severity": "warning"
+    },
+    {
+      "code": "unused_category",
+      "count": 1,
+      "examples": [
+        "id=0, name=boxtruck"
+      ],
+      "message": "Category exists in the schema but is unused by annotations.",
+      "severity": "warning"
+    },
+    {
+      "code": "zero_annotation_image",
+      "count": 79,
+      "examples": [
+        "train/VID_20220208_141840-09_jpg.rf.a258a11ea3813e3fbcd34c9fdb55156f.jpg",
+        "train/VID_20220208_142510-17_jpg.rf.b4c65ebc6fec242b35dd5b5ce7b1586d.jpg",
+        "train/VID_20220208_142209-15_jpg.rf.9aa0c5e1eaa07129992d9e228582a876.jpg",
+        "train/VID_20220208_142510-19_jpg.rf.733a6a75d3610874bad4aea7b269bc7c.jpg",
+        "train/VID_20220208_142510-18_jpg.rf.68b0e8711af3b45af7407f72c6747d63.jpg",
+        "train/VID_20220208_141840-08_jpg.rf.39aa7b780c14db614a3596ded4bf31ca.jpg",
+        "train/VID_20220210_124050-16_jpg.rf.04e36c39da6f2414370744ced8d4a411.jpg",
+        "train/VID_20220210_124050-20_jpg.rf.adc797063831cdcbac6ef6fef9f16dd0.jpg",
+        "train/VID_20220209_144546-10_jpg.rf.7ca63aa378306820d42eb2b78856c197.jpg",
+        "train/VID_20220212_101626-14_jpg.rf.3c15e14dabf4a94026acf2b6b798a7bc.jpg"
+      ],
+      "message": "Image has zero object annotations and must be treated explicitly as a negative/null sample.",
+      "severity": "info"
+    }
+  ],
+  "schema_version": 1,
+  "source_categories": [
+    {
+      "id": 0,
+      "name": "boxtruck",
+      "supercategory": "none"
+    },
+    {
+      "id": 1,
+      "name": "boxtruck",
+      "supercategory": "boxtruck"
+    },
+    {
+      "id": 2,
+      "name": "headtruck",
+      "supercategory": "boxtruck"
+    },
+    {
+      "id": 3,
+      "name": "muatan",
+      "supercategory": "boxtruck"
+    }
+  ],
+  "splits": {
+    "test": {
+      "annotations": 134,
+      "boundary_error_boxes": 0,
+      "boundary_precision_boxes": 6,
+      "image_files": 51,
+      "images": 51,
+      "zero_annotation_images": 0
+    },
+    "train": {
+      "annotations": 2329,
+      "boundary_error_boxes": 0,
+      "boundary_precision_boxes": 30,
+      "image_files": 879,
+      "images": 879,
+      "zero_annotation_images": 65
+    },
+    "valid": {
+      "annotations": 439,
+      "boundary_error_boxes": 0,
+      "boundary_precision_boxes": 3,
+      "image_files": 165,
+      "images": 165,
+      "zero_annotation_images": 14
+    }
+  },
+  "status": "PASS_WITH_WARNINGS",
+  "totals": {
+    "annotations": 2902,
+    "image_files": 1095,
+    "images": 1095,
+    "zero_annotation_images": 79
+  },
+  "validator": {
+    "name": "validate_coco_datasets.py",
+    "version": "1.0.0"
+  }
+}
