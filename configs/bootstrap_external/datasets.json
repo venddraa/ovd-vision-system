@@ -36,6 +36,55 @@
       "maximum_reported_pairs": 500
     }
   },
+  "quality_review": {
+    "audit_date": "2026-09-08",
+    "component_dataset_id": "roboflow-truck-over-dimension-components-v1-raw",
+    "binary_dataset_id": "roboflow-odol-vehicle-detection-binary-v1-raw",
+    "source_group_map_from_repository": "phases/00_external_bootstrap/reports/p2-02/source-groups.jsonl",
+    "duplicate_review_queue_from_repository": "phases/00_external_bootstrap/reports/p2-02/review-candidates.jsonl",
+    "manual_review_decisions_from_repository": "configs/bootstrap_external/p2-03-review-decisions.jsonl",
+    "duplicate_visual_review": {
+      "queue_sha256": "30874d40006d45463d23bf6771767a404b00172c974aadfc3f7c238b258c7332",
+      "reviewed_on": "2026-09-08",
+      "review_status": "provisional_ai_assisted",
+      "review_coverage": "all_257_contact_sheet_pairs",
+      "default_decision": "KEEP_SEPARATE",
+      "group_for_split_candidate_numbers": [
+        71, 85, 86, 90, 92, 104, 112, 114, 116, 119, 120, 126, 127, 128,
+        129, 131, 133, 134, 136, 137, 138, 139, 141, 142, 144, 148, 150,
+        153, 154, 155, 156, 159, 160, 161, 162, 164, 165, 167, 169, 170,
+        172, 173, 174, 175, 176, 177, 178, 179, 181, 182, 183, 184, 185,
+        186, 187, 188, 189, 190, 191, 192, 193, 194, 196, 197, 198, 199,
+        200, 201, 202, 203, 205, 206, 208, 210, 211, 212, 213, 214, 215,
+        216, 217, 218, 219, 220, 221, 222, 224, 225, 226, 227, 232, 233,
+        234, 236, 237, 239, 240, 241, 242, 243, 244, 245, 246, 248, 249,
+        250, 252, 253, 254, 255, 256, 257
+      ],
+      "decision_semantics": "Grouping is for leakage-safe split only; it does not delete images or assert legal duplicate evidence."
+    },
+    "gallery_output_from_repository": "../storage/external/interim/p2-03-label-quality-review",
+    "class_roles": {
+      "component_core": ["boxtruck", "headtruck"],
+      "component_optional": ["muatan"],
+      "binary": ["NOT ODOL", "ODOL"]
+    },
+    "thresholds": {
+      "micro_box_area_ratio": 0.00001,
+      "small_box_area_ratio": 0.001,
+      "near_full_frame_area_ratio": 0.98,
+      "edge_tolerance_px": 1.0,
+      "same_class_duplicate_iou": 0.75
+    },
+    "gallery": {
+      "quality_sheet_columns": 4,
+      "quality_sheet_rows": 5,
+      "duplicate_sheet_columns": 2,
+      "duplicate_sheet_rows": 8,
+      "tile_width": 360,
+      "tile_height": 230,
+      "jpeg_quality": 82
+    }
+  },
   "datasets": [
     {
       "dataset_id": "roboflow-truck-over-dimension-components-v1-raw",

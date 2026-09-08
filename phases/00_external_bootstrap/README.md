@@ -78,3 +78,20 @@ Exit code:
 
 - `0`: audit selesai; leakage finding adalah temuan yang harus diperbaiki saat membuat split;
 - `2`: data/configuration/renderer gagal dibaca atau fingerprint tidak dapat dibuat.
+
+## Audit kualitas label P2-03
+
+Jalankan dari root repository:
+
+```bash
+python scripts/audit_label_quality.py
+```
+
+Audit menggabungkan pemeriksaan struktural COCO, cross-check dua ontology pada
+source identity yang sama, keputusan visual item-level, dan resolusi seluruh
+duplicate candidate P2-02. Laporan metadata ditulis ke `reports/p2-03/`, sedangkan
+contact sheet berpixel disimpan di external interim storage di luar Git.
+
+Exclusion dan grouping hanya menjadi instruksi bagi derived dataset. Raw export
+tidak ditulis ulang, pasangan yang digroup tidak dihapus, dan seluruh keputusan
+visual berstatus provisional sampai memperoleh sign-off manusia.

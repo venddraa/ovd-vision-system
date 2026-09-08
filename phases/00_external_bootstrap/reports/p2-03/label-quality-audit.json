@@ -1,0 +1,283 @@
+{
+  "audit_date": "2026-09-08",
+  "cross_dataset": {
+    "binary_only_source_identities": 0,
+    "component_null_shared_images_by_binary_label_signature": {
+      "NOT ODOL": 42,
+      "NOT ODOL+ODOL": 1,
+      "ODOL": 11
+    },
+    "component_only_source_identities": 29,
+    "component_presence_vs_binary_label": {
+      "component_null/muatan_absent/NOT ODOL": 42,
+      "component_null/muatan_absent/NOT ODOL+ODOL": 1,
+      "component_null/muatan_absent/ODOL": 11,
+      "component_present/muatan_absent/NOT ODOL": 383,
+      "component_present/muatan_absent/NOT ODOL+ODOL": 7,
+      "component_present/muatan_absent/ODOL": 15,
+      "component_present/muatan_present/NOT ODOL": 104,
+      "component_present/muatan_present/NOT ODOL+ODOL": 78,
+      "component_present/muatan_present/ODOL": 425
+    },
+    "shared_source_identities": 1066
+  },
+  "datasets": {
+    "roboflow-odol-vehicle-detection-binary-v1-raw": {
+      "annotations": 1261,
+      "bbox_area_ratio": {
+        "max": 0.99698795,
+        "median": 0.14964664,
+        "min": 0.00073725,
+        "p10": 0.00760646,
+        "p90": 0.96008321
+      },
+      "boxes_at_or_above_near_full_frame_threshold": 58,
+      "boxes_at_or_below_micro_threshold": 0,
+      "boxes_below_small_threshold": 2,
+      "boxes_touching_image_edge": 377,
+      "category_instances": {
+        "NOT ODOL": 672,
+        "ODOL": 589
+      },
+      "image_category_signatures": {
+        "NOT ODOL:1": 484,
+        "NOT ODOL:1+ODOL:1": 65,
+        "NOT ODOL:1+ODOL:2": 8,
+        "NOT ODOL:1+ODOL:3": 4,
+        "NOT ODOL:2": 42,
+        "NOT ODOL:2+ODOL:1": 8,
+        "NOT ODOL:2+ODOL:2": 1,
+        "NOT ODOL:3": 3,
+        "ODOL:1": 428,
+        "ODOL:2": 16,
+        "ODOL:3": 2,
+        "ODOL:4": 5
+      },
+      "images": 1066,
+      "images_containing_category": {
+        "NOT ODOL": 615,
+        "ODOL": 537
+      },
+      "same_class_high_iou_pairs": 0,
+      "source_splits": {
+        "test": 53,
+        "train": 853,
+        "valid": 160
+      },
+      "source_types": {
+        "other_still": 8,
+        "timestamp_named_still": 458,
+        "video_frame": 600
+      },
+      "zero_annotation_images": 0
+    },
+    "roboflow-truck-over-dimension-components-v1-raw": {
+      "annotations": 2902,
+      "bbox_area_ratio": {
+        "max": 0.7730122,
+        "median": 0.07079962,
+        "min": 3.03e-06,
+        "p10": 0.00340962,
+        "p90": 0.5054232
+      },
+      "boxes_at_or_above_near_full_frame_threshold": 0,
+      "boxes_at_or_below_micro_threshold": 1,
+      "boxes_below_small_threshold": 67,
+      "boxes_touching_image_edge": 558,
+      "category_instances": {
+        "boxtruck": 1104,
+        "headtruck": 1127,
+        "muatan": 671
+      },
+      "image_category_signatures": {
+        "<none>": 79,
+        "boxtruck:1": 7,
+        "boxtruck:1+headtruck:1": 364,
+        "boxtruck:1+headtruck:1+muatan:1": 502,
+        "boxtruck:1+headtruck:1+muatan:2": 10,
+        "boxtruck:1+headtruck:1+muatan:3": 1,
+        "boxtruck:1+headtruck:2": 4,
+        "boxtruck:1+headtruck:2+muatan:1": 9,
+        "boxtruck:1+headtruck:3+muatan:1": 2,
+        "boxtruck:1+muatan:1": 3,
+        "boxtruck:2+headtruck:1": 3,
+        "boxtruck:2+headtruck:1+muatan:1": 3,
+        "boxtruck:2+headtruck:1+muatan:2": 1,
+        "boxtruck:2+headtruck:1+muatan:3": 1,
+        "boxtruck:2+headtruck:2": 12,
+        "boxtruck:2+headtruck:2+muatan:1": 26,
+        "boxtruck:2+headtruck:2+muatan:2": 24,
+        "boxtruck:2+headtruck:3+muatan:2": 3,
+        "boxtruck:2+headtruck:4+muatan:3": 1,
+        "boxtruck:2+muatan:1": 3,
+        "boxtruck:3+headtruck:2+muatan:2": 1,
+        "boxtruck:3+headtruck:3+muatan:1": 4,
+        "boxtruck:3+headtruck:3+muatan:2": 4,
+        "boxtruck:3+headtruck:3+muatan:3": 1,
+        "boxtruck:3+headtruck:4+muatan:3": 2,
+        "boxtruck:4+headtruck:3+muatan:3": 1,
+        "boxtruck:4+headtruck:4+muatan:3": 2,
+        "headtruck:1": 15,
+        "headtruck:1+muatan:1": 4,
+        "headtruck:2": 2,
+        "headtruck:2+muatan:2": 1
+      },
+      "images": 1095,
+      "images_containing_category": {
+        "boxtruck": 994,
+        "headtruck": 1003,
+        "muatan": 609
+      },
+      "same_class_high_iou_pairs": 0,
+      "source_splits": {
+        "test": 51,
+        "train": 879,
+        "valid": 165
+      },
+      "source_types": {
+        "other_still": 8,
+        "timestamp_named_still": 458,
+        "video_frame": 629
+      },
+      "zero_annotation_images": 79
+    }
+  },
+  "duplicate_review_handoff": {
+    "candidate_group_pairs": 257,
+    "decision_counts": {
+      "GROUP_TOGETHER_FOR_SPLIT": 112,
+      "KEEP_SEPARATE": 145
+    },
+    "evidence_counts": {
+      "global_perceptual_review": 146,
+      "high_confidence_global_perceptual_review": 71,
+      "timestamp_window_review": 110
+    },
+    "evidence_decision_counts": {
+      "global_perceptual_review/GROUP_TOGETHER_FOR_SPLIT": 7,
+      "global_perceptual_review/KEEP_SEPARATE": 139,
+      "high_confidence_global_perceptual_review/KEEP_SEPARATE": 71,
+      "timestamp_window_review/GROUP_TOGETHER_FOR_SPLIT": 105,
+      "timestamp_window_review/KEEP_SEPARATE": 5
+    },
+    "image_deletions": 0,
+    "policy": "Grouping is for leakage-safe split only; it does not delete images or assert legal duplicate evidence.",
+    "post_review_components_among_touched_groups": 143,
+    "queue_sha256": "30874d40006d45463d23bf6771767a404b00172c974aadfc3f7c238b258c7332",
+    "review_coverage": "all_257_contact_sheet_pairs",
+    "review_status": "provisional_ai_assisted",
+    "reviewed_group_pairs": 257,
+    "source_group_reduction": 108,
+    "source_groups_touched": 251,
+    "status": "VISUALLY_RESOLVED_PROVISIONAL",
+    "transitive_keep_separate_conflicts": 0
+  },
+  "interpretation_limits": [
+    "ODOL/NOT ODOL is visual-suspicion supervision, not legal or metrological ground truth.",
+    "The component labels have no supplied annotation guide, so inferred class semantics remain provisional.",
+    "A mixed ODOL/NOT ODOL image can validly contain multiple vehicles and is not automatically an error.",
+    "Edge-touching and very large boxes may be legitimate truncation/close-up cases.",
+    "AI-assisted visual decisions require human confirmation before a company release dataset."
+  ],
+  "local_gallery": {
+    "duplicate_pair_sheets": 33,
+    "gallery_dir_from_repository": "../storage/external/interim/p2-03-label-quality-review",
+    "imagemagick_command": "/usr/bin/magick",
+    "quality_sheets": 15
+  },
+  "methodology": {
+    "full_structural_coverage": true,
+    "heuristics_are_decision_gates": false,
+    "heuristics_create_review_candidates": true,
+    "manual_review_status": "provisional_ai_assisted",
+    "raw_annotations_are_never_rewritten": true,
+    "thresholds": {
+      "edge_tolerance_px": 1.0,
+      "micro_box_area_ratio": 1e-05,
+      "near_full_frame_area_ratio": 0.98,
+      "same_class_duplicate_iou": 0.75,
+      "small_box_area_ratio": 0.001
+    }
+  },
+  "provenance": [
+    {
+      "checksum_manifest_from_repository": "../storage/external/raw/roboflow/truck-over-dimension-components/v1/integrity/coco-files.sha256",
+      "checksum_manifest_sha256": "abd7dde96a27164317130f6e42f272d12ebb7e3ffa2ab7193727ece020ce8d88",
+      "dataset_id": "roboflow-truck-over-dimension-components-v1-raw",
+      "dataset_root_from_repository": "../storage/external/raw/roboflow/truck-over-dimension-components/v1/extracted/coco"
+    },
+    {
+      "checksum_manifest_from_repository": "../storage/external/raw/roboflow/odol-vehicle-detection-binary/v1/integrity/coco-files.sha256",
+      "checksum_manifest_sha256": "746fe0db2d366b83a678c3efa13924703e348324cd46f76d877bcb86b449c7c8",
+      "dataset_id": "roboflow-odol-vehicle-detection-binary-v1-raw",
+      "dataset_root_from_repository": "../storage/external/raw/roboflow/odol-vehicle-detection-binary/v1/extracted/coco"
+    }
+  ],
+  "raw_data_modified": false,
+  "result": "COMPLETE_WITH_REMEDIATION_REQUIRED",
+  "review_queue": {
+    "candidate_images": 290,
+    "manual_decision_counts": {
+      "DROP_ANNOTATION": 1,
+      "RELABEL_REQUIRED": 16
+    },
+    "manual_decisions": 17,
+    "priority_counts": {
+      "critical": 17,
+      "high": 64,
+      "low": 86,
+      "medium": 123
+    },
+    "reason_counts": {
+      "component_core_count_mismatch": 66,
+      "component_null_image": 79,
+      "component_null_with_binary_odol": 12,
+      "micro_bbox": 1,
+      "mixed_binary_labels": 86,
+      "near_full_frame_bbox": 58,
+      "visually_confirmed_micro_bbox_artifact": 1,
+      "visually_confirmed_missing_component_labels": 15,
+      "visually_confirmed_partial_component_labels": 1
+    }
+  },
+  "rule_resolutions": {
+    "component_core_count_mismatch": {
+      "basis": "complete contact-sheet visual scan found incomplete or ambiguous component coverage",
+      "candidate_images": 66,
+      "resolution": "QUARANTINE_PENDING_COMPONENT_COMPLETENESS_REVIEW",
+      "review_status": "provisional_ai_assisted"
+    },
+    "component_null_image": {
+      "basis": "structural audit plus complete contact-sheet visual scan",
+      "candidate_images": 79,
+      "resolution": "QUARANTINE_PENDING_NEGATIVE_OR_RELABEL_REVIEW",
+      "review_status": "provisional_ai_assisted"
+    },
+    "micro_bbox": {
+      "basis": "full-image visual inspection confirmed an isolated point-like artefact",
+      "candidate_images": 1,
+      "resolution": "DROP_CONFIRMED_ANNOTATION_IN_DERIVED_DATASET",
+      "review_status": "provisional_ai_assisted"
+    },
+    "mixed_binary_labels": {
+      "basis": "complete contact-sheet visual scan found distinct vehicles carrying distinct boxes",
+      "candidate_images": 86,
+      "resolution": "RETAIN_PROVISIONALLY",
+      "review_status": "provisional_ai_assisted"
+    },
+    "near_full_frame_bbox": {
+      "basis": "complete contact-sheet visual scan found predominantly legitimate close-cropped vehicles",
+      "candidate_images": 58,
+      "resolution": "RETAIN_PROVISIONALLY_WITH_CONTEXT_RISK_FLAG",
+      "review_status": "provisional_ai_assisted"
+    }
+  },
+  "schema_version": 1,
+  "script_version": "1.1.0",
+  "training_exclusions": {
+    "annotation_scope_rows": 1,
+    "image_scope_rows": 145,
+    "policy": "Apply only to a derived dataset; raw COCO remains immutable.",
+    "rows": 146
+  }
+}

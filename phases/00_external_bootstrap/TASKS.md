@@ -30,8 +30,8 @@
 | P1-02 | Dokumentasi provenance dataset | source manifest, lisensi, versi, checksum | P1-01 | Done |
 | P2-01 | Validasi file dan anotasi | statistik file, class map, broken-label report | P1-02 | Done |
 | P2-02 | Audit exact dan near duplicate | duplicate-group report | P2-01 | Done |
-| P2-03 | Review visual kualitas label | error gallery dan exclusion list | P2-01 | Ready |
-| P2-04 | Keputusan dataset bersih | clean manifest dan keputusan pakai/perbaiki/buang | P2-02 dan P2-03 | Backlog |
+| P2-03 | Review visual kualitas label | error gallery dan exclusion list | P2-01 | Done |
+| P2-04 | Keputusan dataset bersih | clean manifest dan keputusan pakai/perbaiki/buang | P2-02 dan P2-03 | Ready |
 | P3-01 | Split bebas leakage | train/validation/test manifest | P2-04 | Backlog |
 | P3-02 | Kontrak eksperimen B0/B1/B2 | experiment matrix | P3-01 | Backlog |
 | P4-01 | Baseline truck detector dan tracker | model/config/metrics B0 | P3-02 | Backlog |
@@ -63,7 +63,7 @@
 
 ## Checkpoint aktif
 
-`P2-03 — review visual kualitas bounding box, null image, label B1, dan label B2`.
+`P2-04 — membuat clean manifest tanpa mengubah canonical raw export`.
 
 ## Progress P1-01
 
@@ -96,6 +96,17 @@
 - Hasil final sementara: 474 atomic source group; 63 grup/317 canonical image melintasi source split.
 - Kemiripan lintas-video tidak di-auto-merge; 1.942 matched pair diringkas menjadi 257 source-group review candidate.
 - Source-group map, identity map, machine report, ringkasan, dan review queue: `reports/p2-02/`.
+
+## Evidence P2-03
+
+- Auditor: `scripts/audit_label_quality.py`; raw COCO dan pixel sumber hanya dibaca.
+- Regression test: sepuluh test P2-03; total 23 test project lulus.
+- Seluruh 290 quality candidate diperiksa melalui 15 contact sheet; gallery pixel disimpan lokal di external interim storage, bukan Git.
+- Sebanyak 79 null image dan 66 image dengan pasangan core component tidak lengkap dikarantina; total 145 image exclusion untuk B1.
+- Annotation 227 pada `VID_20210816_165022-16.jpg` dikonfirmasi sebagai micro-box artefact dan hanya akan dibuang pada derived dataset.
+- Sebanyak 17 keputusan item-level tercatat (`16 RELABEL_REQUIRED`, `1 DROP_ANNOTATION`); semuanya masih `provisional_ai_assisted`.
+- Seluruh 257 duplicate candidate pair memperoleh keputusan visual: 112 `GROUP_TOGETHER_FOR_SPLIT`, 145 `KEEP_SEPARATE`, tanpa penghapusan image dan tanpa konflik transitif.
+- Machine report, review queue, duplicate decisions, training exclusions, dan ringkasan: `reports/p2-03/`.
 
 ## Evidence foundation
 
