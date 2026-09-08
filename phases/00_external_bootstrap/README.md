@@ -53,3 +53,28 @@ Exit code:
 - `0`: seluruh dataset lolos; warning tetap dapat muncul dan harus ditindaklanjuti;
 - `1`: sedikitnya satu material data error ditemukan;
 - `2`: registry atau argumen konfigurasi tidak valid.
+
+## Audit duplicate dan source sequence P2-02
+
+Dependency sistem: ImageMagick 7 dengan command `magick`. Tidak ada package Python tambahan.
+
+Jalankan dari root repository:
+
+```bash
+python scripts/audit_dataset_duplicates.py
+```
+
+Audit membaca dua raw export secara read-only, menghitung exact SHA-256 dan fingerprint visual kecil, menyatukan
+alternate-label record melalui nama sumber, lalu menulis artifact deterministik ke `reports/p2-02/`.
+
+Kebijakan grouping:
+
+- seluruh frame dengan ID video sumber yang sama wajib satu `group_id`;
+- burst `truk<timestamp>` hanya digabung otomatis bila jarak waktu dan dua uji visual lolos threshold;
+- kemiripan perceptual lintas video hanya menjadi kandidat review, bukan auto-merge;
+- `group_id` adalah unit atomik split P3-01; split bawaan Roboflow tidak digunakan.
+
+Exit code:
+
+- `0`: audit selesai; leakage finding adalah temuan yang harus diperbaiki saat membuat split;
+- `2`: data/configuration/renderer gagal dibaca atau fingerprint tidak dapat dibuat.

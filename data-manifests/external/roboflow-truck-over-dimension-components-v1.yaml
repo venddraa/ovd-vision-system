@@ -1,7 +1,7 @@
 schema_version: 1
 dataset_id: roboflow-truck-over-dimension-components-v1-raw
 stage: raw
-status: structure_validated_pending_duplicate_and_visual_audit
+status: structure_and_duplicate_validated_pending_visual_quality_audit
 
 source:
   platform: Roboflow Universe
@@ -98,7 +98,7 @@ integrity:
   maximum_boundary_overflow_px: 0.01
   exact_duplicate_hash_groups: 0
   exact_duplicate_hash_groups_cross_split: 0
-  near_duplicate_audit: pending
+  near_duplicate_audit: complete
   checksum_algorithm: SHA-256
   checksum_entries: 1100
   checksum_manifest_sha256: abd7dde96a27164317130f6e42f272d12ebb7e3ffa2ab7193727ece020ce8d88
@@ -112,7 +112,26 @@ validation:
   information_findings: 79
   report_from_repository: phases/00_external_bootstrap/reports/p2-01/roboflow-truck-over-dimension-components-v1-raw.validation.json
 
+duplicate_audit:
+  auditor_version: 1.0.0
+  audited_on: "2026-09-08"
+  status: COMPLETE_WITH_LEAKAGE_FINDINGS
+  source_identities: 1095
+  internal_exact_file_groups: 0
+  video_sequence_groups: 106
+  video_sequence_images: 629
+  video_groups_crossing_source_splits: 24
+  timestamp_visual_match_groups: 71
+  timestamp_images_in_visual_match_groups: 169
+  recommended_atomic_source_groups: 474
+  groups_crossing_source_splits: 63
+  images_in_cross_split_groups: 317
+  pending_visual_review_group_pairs: 257
+  report_from_repository: phases/00_external_bootstrap/reports/p2-02/duplicate-audit.json
+  source_group_map_from_repository: phases/00_external_bootstrap/reports/p2-02/source-groups.jsonl
+  policy: Use group_id as the atomic unit for P3-01; do not reuse the Roboflow source split.
+
 next_actions:
-  - Audit near duplicates and source-scene leakage before making the experiment split.
   - Visually review labels and all null images.
+  - Resolve or explicitly keep separate the P2-02 visual-review candidates.
   - Create a derived training dataset outside raw storage; never modify this snapshot in place.

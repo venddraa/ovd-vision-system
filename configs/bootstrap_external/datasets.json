@@ -1,5 +1,41 @@
 {
   "schema_version": 1,
+  "duplicate_audit": {
+    "canonical_dataset_id": "roboflow-truck-over-dimension-components-v1-raw",
+    "image_renderer": {
+      "command": "magick",
+      "width": 24,
+      "height": 24,
+      "colorspace": "Gray",
+      "resize_filter": "Lanczos"
+    },
+    "source_patterns": {
+      "video_frame": "^(?P<sequence>VID_[0-9]{8}_[0-9]{6})-(?P<frame>[0-9]+)\\.(?:jpg|jpeg|png)$",
+      "timestamp_image": "^truk(?P<timestamp>[0-9]+)\\.(?:jpg|jpeg|png)$"
+    },
+    "high_confidence_global": {
+      "auto_merge": false,
+      "maximum_aspect_log_delta": 0.18,
+      "maximum_phash_distance_ratio": 0.10,
+      "maximum_horizontal_dhash_distance_ratio": 0.13,
+      "maximum_vertical_dhash_distance_ratio": 0.13
+    },
+    "temporal_near_duplicate": {
+      "maximum_timestamp_gap": 10,
+      "maximum_aspect_log_delta": 0.50,
+      "maximum_phash_distance_ratio": 0.35,
+      "minimum_shifted_ncc": 0.80,
+      "maximum_shift_pixels": 3
+    },
+    "review_candidate": {
+      "maximum_aspect_log_delta": 0.25,
+      "maximum_phash_distance_ratio": 0.16,
+      "maximum_horizontal_dhash_distance_ratio": 0.24,
+      "maximum_vertical_dhash_distance_ratio": 0.24,
+      "minimum_temporal_shifted_ncc": 0.70,
+      "maximum_reported_pairs": 500
+    }
+  },
   "datasets": [
     {
       "dataset_id": "roboflow-truck-over-dimension-components-v1-raw",

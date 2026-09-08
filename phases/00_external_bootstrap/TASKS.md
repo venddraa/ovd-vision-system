@@ -1,6 +1,6 @@
 # Tasks — Phase 00 External Bootstrap
 
-**Terakhir diperbarui:** 7 September 2026
+**Terakhir diperbarui:** 8 September 2026
 
 ## Status workflow
 
@@ -29,7 +29,7 @@
 | P1-01 | Intake dua dataset Roboflow | raw dataset eksternal di storage | P0-03 dan login pengguna | Done |
 | P1-02 | Dokumentasi provenance dataset | source manifest, lisensi, versi, checksum | P1-01 | Done |
 | P2-01 | Validasi file dan anotasi | statistik file, class map, broken-label report | P1-02 | Done |
-| P2-02 | Audit exact dan near duplicate | duplicate-group report | P2-01 | Ready |
+| P2-02 | Audit exact dan near duplicate | duplicate-group report | P2-01 | Done |
 | P2-03 | Review visual kualitas label | error gallery dan exclusion list | P2-01 | Ready |
 | P2-04 | Keputusan dataset bersih | clean manifest dan keputusan pakai/perbaiki/buang | P2-02 dan P2-03 | Backlog |
 | P3-01 | Split bebas leakage | train/validation/test manifest | P2-04 | Backlog |
@@ -63,7 +63,7 @@
 
 ## Checkpoint aktif
 
-`P2-02 — mengelompokkan exact duplicate, near duplicate, dan source sequence sebelum split`.
+`P2-03 — review visual kualitas bounding box, null image, label B1, dan label B2`.
 
 ## Progress P1-01
 
@@ -84,6 +84,18 @@
 - Binary ODOL dataset: `PASS_WITH_WARNINGS`, 0 error, 30 warning, 0 info.
 - Seluruh 2.161 image header dan 2.171 raw file checksum berhasil diverifikasi tanpa mismatch.
 - Report machine-readable dan human-readable: `reports/p2-01/`.
+
+## Evidence P2-02
+
+- Auditor: `scripts/audit_dataset_duplicates.py` dengan ImageMagick hanya sebagai renderer fingerprint 24×24.
+- Regression test: tujuh test baru; total 13 test project lulus.
+- Sebanyak 2.161 record dipetakan menjadi 1.095 source identity; 1.066 identity digunakan oleh kedua ontology.
+- Tidak ada exact duplicate internal; ada satu exact-byte pair antardataset dengan source identity yang sama.
+- Sebanyak 629 frame terpetakan ke 106 video; 24 video/219 frame sudah melintasi source split Roboflow.
+- Burst timestamp tervalidasi menjadi 71 grup probable-near-duplicate yang mencakup 169 image.
+- Hasil final sementara: 474 atomic source group; 63 grup/317 canonical image melintasi source split.
+- Kemiripan lintas-video tidak di-auto-merge; 1.942 matched pair diringkas menjadi 257 source-group review candidate.
+- Source-group map, identity map, machine report, ringkasan, dan review queue: `reports/p2-02/`.
 
 ## Evidence foundation
 

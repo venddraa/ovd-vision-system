@@ -1,7 +1,7 @@
 schema_version: 1
 dataset_id: roboflow-odol-vehicle-detection-binary-v1-raw
 stage: raw
-status: structure_validated_pending_duplicate_and_visual_audit
+status: structure_and_duplicate_validated_pending_visual_quality_audit
 
 source:
   platform: Roboflow Universe
@@ -120,7 +120,7 @@ integrity:
   maximum_boundary_overflow_px: 0.01
   exact_duplicate_hash_groups: 0
   exact_duplicate_hash_groups_cross_split: 0
-  internal_near_duplicate_audit: pending
+  internal_near_duplicate_audit: covered_by_unified_source_group_audit
   checksum_algorithm: SHA-256
   checksum_entries: 1071
   checksum_manifest_sha256: 746fe0db2d366b83a678c3efa13924703e348324cd46f76d877bcb86b449c7c8
@@ -134,8 +134,23 @@ validation:
   information_findings: 0
   report_from_repository: phases/00_external_bootstrap/reports/p2-01/roboflow-odol-vehicle-detection-binary-v1-raw.validation.json
 
+duplicate_audit:
+  auditor_version: 1.0.0
+  audited_on: "2026-09-08"
+  status: COMPLETE_WITH_LEAKAGE_FINDINGS
+  source_identities: 1066
+  internal_exact_file_groups: 0
+  cross_dataset_exact_file_groups: 1
+  shared_source_identities_with_component_dataset: 1066
+  shared_visual_phash_distance_median: 0.0
+  shared_visual_phash_distance_maximum: 0.031746
+  shared_identities_in_different_source_splits: 363
+  unified_recommended_atomic_source_groups: 474
+  report_from_repository: phases/00_external_bootstrap/reports/p2-02/duplicate-audit.json
+  source_identity_map_from_repository: phases/00_external_bootstrap/reports/p2-02/source-identity-map.jsonl
+  policy: Reuse the component dataset group_id; this alternate-label export is not an independent visual split.
+
 next_actions:
-  - Build a shared source-image identity map across both label ontologies.
-  - Audit near-duplicate video frames and group them before splitting.
   - Visually review ODOL and NOT ODOL label semantics and bounding-box consistency.
+  - Resolve or explicitly keep separate the P2-02 visual-review candidates.
   - Create a derived training dataset outside raw storage; never modify this snapshot in place.
