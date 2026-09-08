@@ -95,3 +95,20 @@ contact sheet berpixel disimpan di external interim storage di luar Git.
 Exclusion dan grouping hanya menjadi instruksi bagi derived dataset. Raw export
 tidak ditulis ulang, pasangan yang digroup tidak dihapus, dan seluruh keputusan
 visual berstatus provisional sampai memperoleh sign-off manusia.
+
+## Clean dataset contract P2-04
+
+Jalankan dari root repository:
+
+```bash
+python scripts/build_clean_dataset_manifest.py
+```
+
+Builder memverifikasi checksum seluruh input P2-02/P2-03 serta 2.171 raw file,
+menggabungkan hasil review duplicate menjadi `final_group_id`, dan menetapkan
+keputusan untuk setiap dataset record: `USE`, `REPAIR_AND_USE`, `QUARANTINE`,
+atau `USE_PROVISIONALLY`. Artifact deterministik ditulis ke `reports/p2-04/`.
+
+P2-04 belum membuat file training atau split. `final_group_id` menjadi unit
+atomik bagi P3-01, sedangkan `source_split_for_provenance_only` tidak boleh
+digunakan sebagai split eksperimen.

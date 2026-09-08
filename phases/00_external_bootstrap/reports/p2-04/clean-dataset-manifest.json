@@ -1,0 +1,134 @@
+{
+  "datasets": {
+    "roboflow-odol-vehicle-detection-binary-v1-raw": {
+      "annotations_dropped_by_repair": 0,
+      "annotations_excluded_with_quarantined_images": 0,
+      "decision_counts": {
+        "USE_PROVISIONALLY": 1066
+      },
+      "eligible_final_groups": 364,
+      "eligible_records": 1066,
+      "included_annotations_after_repair": 1261,
+      "quarantined_records": 0,
+      "raw_annotations": 1261,
+      "records": 1066,
+      "repair_and_use_records": 0
+    },
+    "roboflow-truck-over-dimension-components-v1-raw": {
+      "annotations_dropped_by_repair": 1,
+      "annotations_excluded_with_quarantined_images": 210,
+      "decision_counts": {
+        "QUARANTINE": 145,
+        "REPAIR_AND_USE": 1,
+        "USE": 949
+      },
+      "eligible_final_groups": 353,
+      "eligible_records": 950,
+      "included_annotations_after_repair": 2691,
+      "quarantined_records": 145,
+      "raw_annotations": 2902,
+      "records": 1095,
+      "repair_and_use_records": 1
+    }
+  },
+  "datasets_role": {
+    "binary": "roboflow-odol-vehicle-detection-binary-v1-raw",
+    "component": "roboflow-truck-over-dimension-components-v1-raw"
+  },
+  "decision_policy": {
+    "binary_purpose": "visual_suspicion_comparator_only",
+    "binary_unexcluded": "USE_PROVISIONALLY",
+    "component_annotation_drop": "REPAIR_AND_USE",
+    "component_image_exclusion": "QUARANTINE",
+    "component_unflagged": "USE",
+    "grouping_scope": "leakage_safe_split_only",
+    "human_signoff_required_before_company_release": true,
+    "pixel_copy_in_p2_04": false,
+    "raw_mutation_allowed": false
+  },
+  "interpretation_limits": [
+    "USE means eligible for the named bootstrap dataset variant, not legally verified OVD.",
+    "USE_PROVISIONALLY restricts B2 to a visual-suspicion comparator.",
+    "GROUP_TOGETHER_FOR_SPLIT is a leakage constraint and does not delete images.",
+    "QUARANTINE retains raw data while preventing unreviewed supervision from training.",
+    "Human sign-off remains required before a company release dataset."
+  ],
+  "output_coverage": {
+    "quarantine_rows": 145,
+    "record_decisions": 2161,
+    "repair_action_rows": 1,
+    "resolved_source_groups": 366
+  },
+  "pixels_copied": false,
+  "policy_date": "2026-09-08",
+  "raw_data_modified": false,
+  "raw_integrity": [
+    {
+      "checksum_manifest_from_repository": "../storage/external/raw/roboflow/odol-vehicle-detection-binary/v1/integrity/coco-files.sha256",
+      "checksum_manifest_sha256": "746fe0db2d366b83a678c3efa13924703e348324cd46f76d877bcb86b449c7c8",
+      "dataset_id": "roboflow-odol-vehicle-detection-binary-v1-raw",
+      "status": "PASS",
+      "verified_files": 1071
+    },
+    {
+      "checksum_manifest_from_repository": "../storage/external/raw/roboflow/truck-over-dimension-components/v1/integrity/coco-files.sha256",
+      "checksum_manifest_sha256": "abd7dde96a27164317130f6e42f272d12ebb7e3ffa2ab7193727ece020ce8d88",
+      "dataset_id": "roboflow-truck-over-dimension-components-v1-raw",
+      "status": "PASS",
+      "verified_files": 1100
+    }
+  ],
+  "record_decision_counts": {
+    "QUARANTINE": 145,
+    "REPAIR_AND_USE": 1,
+    "USE": 949,
+    "USE_PROVISIONALLY": 1066
+  },
+  "result": "READY_FOR_P3_LEAKAGE_SAFE_SPLIT",
+  "schema_version": 1,
+  "script_version": "1.0.0",
+  "source_groups": {
+    "base_source_groups": 474,
+    "duplicate_decision_counts": {
+      "GROUP_TOGETHER_FOR_SPLIT": 112,
+      "KEEP_SEPARATE": 145
+    },
+    "duplicate_decisions": 257,
+    "resolved_source_groups": 366,
+    "source_group_reduction": 108,
+    "source_identities": 1095,
+    "transitive_keep_separate_conflicts": 0
+  },
+  "upstream_provenance": [
+    {
+      "artifact": "dataset_registry",
+      "path_from_repository": "configs/bootstrap_external/datasets.json",
+      "sha256": "bbaeb79055bb24ab6245f82714279b88024576325547f5be9b6058f9eebe5448"
+    },
+    {
+      "artifact": "duplicate_review_decisions",
+      "path_from_repository": "phases/00_external_bootstrap/reports/p2-03/duplicate-review-decisions.jsonl",
+      "sha256": "0ddd2ffbd74c7077883ab44cdf62ac8f4a0d23312d856b8d7cb0e90b0ac3af16"
+    },
+    {
+      "artifact": "quality_review_queue",
+      "path_from_repository": "phases/00_external_bootstrap/reports/p2-03/review-queue.jsonl",
+      "sha256": "28af6e057b20dd733d7ceef383f96fe00f00d886378e1f6a314fce35d8722bf8"
+    },
+    {
+      "artifact": "source_groups",
+      "path_from_repository": "phases/00_external_bootstrap/reports/p2-02/source-groups.jsonl",
+      "sha256": "7dc509d96976f0784af9bb549e6688687eb01f4ef5d7cafe004d96e1de46107d"
+    },
+    {
+      "artifact": "source_identity_map",
+      "path_from_repository": "phases/00_external_bootstrap/reports/p2-02/source-identity-map.jsonl",
+      "sha256": "8307ca4aef5bcf083a77b1c0292f5b36c64e0f75890e1dd40115f230918b8fc7"
+    },
+    {
+      "artifact": "training_exclusions",
+      "path_from_repository": "phases/00_external_bootstrap/reports/p2-03/training-exclusions.jsonl",
+      "sha256": "9f5965f31f203d0ab04276eed5ee656f1094f56948ad6b9db4d0bc07b04ca26f"
+    }
+  ]
+}

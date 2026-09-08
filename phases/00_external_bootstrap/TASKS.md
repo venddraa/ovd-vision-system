@@ -31,8 +31,8 @@
 | P2-01 | Validasi file dan anotasi | statistik file, class map, broken-label report | P1-02 | Done |
 | P2-02 | Audit exact dan near duplicate | duplicate-group report | P2-01 | Done |
 | P2-03 | Review visual kualitas label | error gallery dan exclusion list | P2-01 | Done |
-| P2-04 | Keputusan dataset bersih | clean manifest dan keputusan pakai/perbaiki/buang | P2-02 dan P2-03 | Ready |
-| P3-01 | Split bebas leakage | train/validation/test manifest | P2-04 | Backlog |
+| P2-04 | Keputusan dataset bersih | clean manifest dan keputusan pakai/perbaiki/buang | P2-02 dan P2-03 | Done |
+| P3-01 | Split bebas leakage | train/validation/test manifest | P2-04 | Ready |
 | P3-02 | Kontrak eksperimen B0/B1/B2 | experiment matrix | P3-01 | Backlog |
 | P4-01 | Baseline truck detector dan tracker | model/config/metrics B0 | P3-02 | Backlog |
 | P4-02 | Baseline component detector | model/config/metrics B1 | P3-02 | Backlog |
@@ -63,7 +63,7 @@
 
 ## Checkpoint aktif
 
-`P2-04 — membuat clean manifest tanpa mengubah canonical raw export`.
+`P3-01 — membuat train/validation/test split dengan final_group_id sebagai unit atomik`.
 
 ## Progress P1-01
 
@@ -107,6 +107,19 @@
 - Sebanyak 17 keputusan item-level tercatat (`16 RELABEL_REQUIRED`, `1 DROP_ANNOTATION`); semuanya masih `provisional_ai_assisted`.
 - Seluruh 257 duplicate candidate pair memperoleh keputusan visual: 112 `GROUP_TOGETHER_FOR_SPLIT`, 145 `KEEP_SEPARATE`, tanpa penghapusan image dan tanpa konflik transitif.
 - Machine report, review queue, duplicate decisions, training exclusions, dan ringkasan: `reports/p2-03/`.
+
+## Evidence P2-04
+
+- Builder: `scripts/build_clean_dataset_manifest.py`; tahap ini tidak menyalin pixel dan tidak memodifikasi raw COCO.
+- Seluruh enam input upstream dibekukan dengan SHA-256; perubahan input menyebabkan build fail-closed.
+- Sebanyak 2.171 raw file, termasuk COCO JSON, diverifikasi ulang terhadap dua integrity manifest yang juga dibekukan SHA-256.
+- Coverage lengkap: 2.161 dataset record, 1.095 source identity, dan 366 final leakage group.
+- B1: 950 record eligible dengan 2.691 annotation; 145 record quarantine; satu record `REPAIR_AND_USE` membuang annotation 227 hanya saat materialisasi turunan.
+- B2: seluruh 1.066 record/1.261 annotation eligible secara provisional hanya untuk comparator visual suspicion.
+- Final grouping mengurangi 474 base group menjadi 366 group tanpa konflik transitif `KEEP_SEPARATE`.
+- Delapan regression test P2-04 ditambahkan; total 31 test project lulus.
+- Seluruh enam output P2-04 identik byte-for-byte pada dua build berturut-turut.
+- Clean manifest, keputusan per-record, final groups, quarantine queue, repair action, dan ringkasan: `reports/p2-04/`.
 
 ## Evidence foundation
 

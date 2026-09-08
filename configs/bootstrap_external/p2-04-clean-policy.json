@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "policy_date": "2026-09-08",
+  "dataset_registry_from_repository": "configs/bootstrap_external/datasets.json",
+  "component_dataset_id": "roboflow-truck-over-dimension-components-v1-raw",
+  "binary_dataset_id": "roboflow-odol-vehicle-detection-binary-v1-raw",
+  "raw_integrity_manifest_sha256": {
+    "roboflow-truck-over-dimension-components-v1-raw": "abd7dde96a27164317130f6e42f272d12ebb7e3ffa2ab7193727ece020ce8d88",
+    "roboflow-odol-vehicle-detection-binary-v1-raw": "746fe0db2d366b83a678c3efa13924703e348324cd46f76d877bcb86b449c7c8"
+  },
+  "upstream_artifacts": {
+    "dataset_registry": {
+      "path_from_repository": "configs/bootstrap_external/datasets.json",
+      "sha256": "bbaeb79055bb24ab6245f82714279b88024576325547f5be9b6058f9eebe5448"
+    },
+    "source_groups": {
+      "path_from_repository": "phases/00_external_bootstrap/reports/p2-02/source-groups.jsonl",
+      "sha256": "7dc509d96976f0784af9bb549e6688687eb01f4ef5d7cafe004d96e1de46107d"
+    },
+    "source_identity_map": {
+      "path_from_repository": "phases/00_external_bootstrap/reports/p2-02/source-identity-map.jsonl",
+      "sha256": "8307ca4aef5bcf083a77b1c0292f5b36c64e0f75890e1dd40115f230918b8fc7"
+    },
+    "training_exclusions": {
+      "path_from_repository": "phases/00_external_bootstrap/reports/p2-03/training-exclusions.jsonl",
+      "sha256": "9f5965f31f203d0ab04276eed5ee656f1094f56948ad6b9db4d0bc07b04ca26f"
+    },
+    "duplicate_review_decisions": {
+      "path_from_repository": "phases/00_external_bootstrap/reports/p2-03/duplicate-review-decisions.jsonl",
+      "sha256": "0ddd2ffbd74c7077883ab44cdf62ac8f4a0d23312d856b8d7cb0e90b0ac3af16"
+    },
+    "quality_review_queue": {
+      "path_from_repository": "phases/00_external_bootstrap/reports/p2-03/review-queue.jsonl",
+      "sha256": "28af6e057b20dd733d7ceef383f96fe00f00d886378e1f6a314fce35d8722bf8"
+    }
+  },
+  "decision_policy": {
+    "component_unflagged": "USE",
+    "component_annotation_drop": "REPAIR_AND_USE",
+    "component_image_exclusion": "QUARANTINE",
+    "binary_unexcluded": "USE_PROVISIONALLY",
+    "binary_purpose": "visual_suspicion_comparator_only",
+    "grouping_scope": "leakage_safe_split_only",
+    "raw_mutation_allowed": false,
+    "pixel_copy_in_p2_04": false,
+    "human_signoff_required_before_company_release": true
+  },
+  "expected": {
+    "dataset_records": 2161,
+    "source_identities": 1095,
+    "base_source_groups": 474,
+    "resolved_source_groups": 366,
+    "duplicate_decisions": 257,
+    "component_records": 1095,
+    "component_quarantined_records": 145,
+    "component_included_records": 950,
+    "component_repair_and_use_records": 1,
+    "component_raw_annotations": 2902,
+    "component_included_annotations": 2691,
+    "binary_records": 1066,
+    "binary_included_records": 1066,
+    "binary_raw_annotations": 1261,
+    "binary_included_annotations": 1261,
+    "annotation_repairs": 1,
+    "transitive_keep_separate_conflicts": 0
+  }
+}
